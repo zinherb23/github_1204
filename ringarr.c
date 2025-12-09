@@ -57,7 +57,7 @@ int main(){
 	printf("the value is %d\n",d);
 	ringbufPop(&ringbuf, &d);
 	printf("the value is %d\n",d);
-	printf("bye\n");
+	printf("byebye\n");
 	return 0;
 }
 

@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdbool.h>
-
+//modified in internet
 #define TABLESIZE 128
 
 typedef enum{

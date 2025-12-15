@@ -2,7 +2,7 @@
 #include<stdbool.h>
 //modified in internet
 #define TABLESIZE 128
-
+//modified from local
 typedef enum{
 	EMPTY,
 	OCCUPIED,

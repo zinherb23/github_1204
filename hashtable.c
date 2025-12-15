@@ -79,7 +79,7 @@ bool delete_hash(HashTable* ht, int key){
 	}
 	return false;
 }
-
+//aaa:
 int main(){
 	HashTable ht;
 	init_hash(&ht);

@@ -10,30 +10,26 @@ typedef struct{
 
 int heap_delete(heap* myheap){
 	int value = myheap->arr[0];
-	if(myheap->count == 1){
-		return value;
+	if(myheap->count == 0){
+		return -1;
 	}
 	myheap->arr[0]= myheap->arr[--myheap->count];
 	int index = 0;
 	while(index < myheap->count){
 		int leftchild = index*2 + 1;
 		int rightchild  = index*2 + 2;
-		int temp_index = index;
-		int temp_value = myheap->arr[temp_index];
-		if(temp_value > myheap->arr[leftchild] && leftchild < myheap->count){
-			temp_value = myheap->arr[leftchild];
-			temp_index = leftchild;
+		int temp = index;
+		if(leftchild < myheap->count && myheap->arr[temp] > myheap->arr[leftchild]){
+			temp = leftchild;
 		}
-		if(temp_value >myheap->arr[rightchild] && rightchild < myheap->count){
-			temp_value = myheap->arr[rightchild];
-			temp_index = rightchild;
+		if(rightchild < myheap->count && myheap->arr[temp] > myheap->arr[rightchild]){
+			temp = rightchild;
 		}
-		int swap_value = myheap->arr[temp_index];
-		myheap->arr[temp_index] = myheap->arr[index];
+		if(temp == index) break;
+		int swap_value = myheap->arr[temp];
+		myheap->arr[temp] = myheap->arr[index];
 		myheap->arr[index] = swap_value;
-		index = temp_index;
-		break;
-		
+		index = temp;
 	}
 	return value;
 }
@@ -74,7 +70,7 @@ void heap_sort(int* arr, int n){
 }
 
 int main(){
-	int arr[] = {1,5,4,2,3,6};
+	int arr[] = {6,5,4,3,2,1,7,8,9,10,11,12};
 	int len = sizeof(arr)/sizeof(arr[0]);
 	heap_sort(arr,len);
 	for(int i = 0; i < len; i++){
